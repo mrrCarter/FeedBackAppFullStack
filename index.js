@@ -3,7 +3,7 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.send(
-    "This is a confirmation that i have received your request. Tried to recommit and checked heroku"
+    "This is a confirmation that i have received your request. Tried to recommit and checked heroku. This is on ubuntu in tang hall"
   );
 });
 
