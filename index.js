@@ -1,11 +1,18 @@
 const express = require("express");
-const app = express();
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
-app.get("/", (req, res) => {
-  res.send(
-    "This is a confirmation that i have received your request. Tried to recommit and checked heroku. This is on ubuntu in tang hall"
-  );
-});
+const app = express();
+//test route handler... should be deleted
+// app.get("/", (req, res) => {
+//   res.send(
+//     "This is a confirmation that i have received your request. Tried to recommit and checked heroku. This is on ubuntu in tang hall"
+//   );
+// });
+
+//make passport understand how to use the google library
+//new google strategy creates a new istance of the google passport strategy
+passport.use(new GoogleStrategy());
 
 const PORT = process.env.PORT || 5000;
 
