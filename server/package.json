@@ -8,7 +8,19 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "lint": "eslint . --ext .js",
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js --exec \"npm run lint && node\""
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    }
   },
   "repository": {
     "type": "git",
@@ -21,8 +33,10 @@
   },
   "homepage": "https://github.com/mrrCarter/FeedBackAppFullStack#readme",
   "dependencies": {
-    "eslint": "^5.8.0",
+    "@types/express": "^4.16.0",
+    "eslint": "^5.9.0",
     "express": "^4.16.4",
+    "nodemon": "^1.18.6",
     "passport": "~0.4.0",
     "passport-google-oauth20": "~1.0.0"
   }
