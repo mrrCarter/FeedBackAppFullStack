@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { Schema } = mongoose; // same as const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -6,4 +6,4 @@ const userSchema = new Schema({
 });
 
 //now lets create a model class for mongoose
-mongoose.model("users", userSchema); //we want to create a new userSchema collection called users.
+mongoose.model('users', userSchema); //we want to create a new userSchema collection called users.
