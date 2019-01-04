@@ -8,16 +8,20 @@ require('./models/User'); //ensure that whenever our app boots up, mongoose will
 
 require('./services/passport'); //since we're not using this we can just have a require statement and not assign it to a constant or variable
 
-mongoose.connect(keys.mongoURI); //go to mlab.com and pass the address of the instance we created as an object. imported from config/keys.js for sec purpose
+mongoose.connect(
+  keys.mongoURI,
+  { useNewUrlParser: true }
+); //go to mlab.com and pass the address of the instance we created as an object. imported from config/keys.js for sec purpose
 
 const app = express();
 
 //code that will tell express how to handle cookie
 app.use(
-    cookieSession({ //30days, 24hr in a day, 60min in hr, 60s in min, 1000millisec to a sec
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [keys.cookieKey]//randomly generated key in config/keys.js
-    })
+  cookieSession({
+    //30days, 24hr in a day, 60min in hr, 60s in min, 1000millisec to a sec
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey] //randomly generated key in config/keys.js
+  })
 );
 
 //tell passport to make use of cookies to handle auth
